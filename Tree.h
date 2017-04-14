@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstring>
 #include <iostream>
 
 namespace program
@@ -15,6 +16,7 @@ namespace program
 			Node() : left(0), right(0){};
 		};
 		Node *root;
+		int n = 0;
 
 	public:
 		Tree()
@@ -43,7 +45,7 @@ namespace program
 			}
 			else
 			{
-				cout << "Элементы дерева: ";
+				cout << "Элементы дерева: " << endl;
 				show(root);
 				cout << endl;
 			}
@@ -54,7 +56,18 @@ namespace program
 			del(root);
 			cout << "Дерево удалено\n";
 			root = NULL;
-			
+		}
+
+		void search()
+		{
+			T data;
+			cout << "\nВведите нужную строку: ";
+			cin >> data;
+			cout << endl;
+			if (search(root, data) == 0) 
+				cout << "Такой строки нет \n" << endl;
+			else
+				cout << "Строка найдена \n" << endl;
 		}
 
 	private:
@@ -67,7 +80,7 @@ namespace program
 			}
 			else
 			{
-				if (x < node->val)
+				if (x.size() < node->val.size())
 				{
 					add_node(node->left, x);
 				}
@@ -96,6 +109,22 @@ namespace program
 				show(node->right);
 				show(node->left);
 			}
+		}
+
+		int search(Node *node, T data)
+		{
+			if (node->val == data) {
+				n++;
+			}
+			else
+			{
+				if (node->right != NULL)
+					search(node->right, data);
+				
+				if (node->left != NULL)
+					search(node->left, data);
+			}
+			return n;
 		}
 	};
 }
