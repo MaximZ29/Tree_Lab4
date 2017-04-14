@@ -11,15 +11,15 @@ using program::Tree;
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	int k;
+	int height;
 
 		Tree <string> tree;
-		cout << "¬ведите размер дерева: ";
-		cin >> k;
-		while (k)
+		cout << "¬ведите высоту дерева: ";
+		cin >> height;
+		while (height)
 			{
 				tree.add_node();
-				k--;
+				height--;
 			}
 		cout << endl;
 		
@@ -27,5 +27,6 @@ int main()
 		tree.search();
 	
 	system("pause");
-	return 0;}
+	return 0;
+}
 	
