@@ -22,37 +22,39 @@ namespace program
 			root = NULL;
 		};
 
-		~Tree(){}
+		~Tree()
+		{
+			
+		}
 
 		void add_node()
 		{
 			T x;
-			cout << " Введите строку: ";
-			if (!(cin >> x))
-			{
-				throw string(" Данные введены неверно, повторите\n");
-			}
-			else add_node(root, x);
+			cout << "Введите элемент дерева: ";
+			cin >> x; 
+			add_node(root, x);
 		}
 
-		void Show()
+		void show()
 		{
 			if (root == 0)
 			{
-				cout << " Дерево не содержит элементов";
+				cout << "Дерево не содержит элементов\n";
 			}
 			else
 			{
-				cout << " Элементы дерева: ";
-				Show(root);
+				cout << "Элементы дерева: ";
+				show(root);
+				cout << endl;
 			}
 		}
 
-		void Delete()
+		void del()
 		{
-			Delete(root);
-			cout << " Дерево удалено\n";
+			del(root);
+			cout << "Дерево удалено\n";
 			root = NULL;
+			
 		}
 
 	private:
@@ -76,23 +78,23 @@ namespace program
 			}
 		}
 
-		void Delete(Node *node)
+		void del(Node *node)
 		{
 			if (node)
 			{
-				Delete(node->left);
-				Delete(node->right);
+				del(node->left);
+				del(node->right);
 				delete node;
 			}
 		}
 
-		void Show(Node *&node)
+		void show(Node *&node)
 		{
 			if (node != NULL)
 			{
 				cout << node->val << " ";
-				Show(node->right);
-				Show(node->left);
+				show(node->right);
+				show(node->left);
 			}
 		}
 	};
