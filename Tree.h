@@ -81,11 +81,11 @@ namespace program
 			{
 				if (x.size() < node->val.size())
 				{
-					add_node(node->left, x);
+					add_node(node->right, x);
 				}
 				else
 				{
-					add_node(node->right, x);
+					add_node(node->left, x);
 				}
 			}
 		}
@@ -117,10 +117,10 @@ namespace program
 			}
 			else
 			{
-				if (node->right != NULL)
+				if (data.size() < node->val.size())
 					search(node->right, data);
 				
-				if (node->left != NULL)
+				if (data.size() > node->val.size())
 					search(node->left, data);
 			}
 			return n;

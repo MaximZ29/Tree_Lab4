@@ -11,11 +11,12 @@ using program::Tree;
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	int height;
+	int k,height;
 
 		Tree <string> tree;
 		cout << "¬ведите высоту дерева: ";
-		cin >> height;
+		cin >> k;
+		height = pow(2,k) - 1;
 		while (height)
 			{
 				tree.add_node();
