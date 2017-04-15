@@ -117,10 +117,10 @@ namespace program
 			}
 			else
 			{
-				if (data.size() < node->val.size())
+				if (node->right != NULL)
 					search(node->right, data);
 				
-				if (data.size() > node->val.size())
+				if (node->left != NULL)
 					search(node->left, data);
 			}
 			return n;
